@@ -4,16 +4,15 @@
       = title
     .row.indicators
       - indicators.each do |indicator|
-        .span3 *{class: [indicator[:name].parameterize]}
-          .indicator
-            .row-fluid
-              .status
-              .pie
-            .row-fluid
-              .status.icon-2x
-                .icon-ok
-              .info
-                .title
-                  = indicator[:name]
-                .description
-                  = indicator[:description]
+        .span3.indicator *{class: [indicator[:name].parameterize]} data-indicator-key="#{indicator[:name].parameterize}" data-has-indicator="#{indicator[:count]}" data-hasnt-indicator="#{@total_schools - indicator[:count].to_i}"
+          .row-fluid
+            .status
+            .pie
+          .row-fluid
+            .status.icon-2x
+              .icon-ok
+            .info
+              .title
+                = indicator[:name]
+              .description
+                = indicator[:description]

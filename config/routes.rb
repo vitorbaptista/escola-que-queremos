@@ -1,5 +1,6 @@
 Dadoseducacionais::Application.routes.draw do
-  root :to => 'school#index'
-
   match '/school/info/:id' => 'school#info'
+  match '/school/search' => 'school#search'
+
+  root :to => 'school#index'
 end

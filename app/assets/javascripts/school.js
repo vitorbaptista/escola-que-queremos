@@ -1,13 +1,14 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 //= require d3
+//= require search
 
 var width = 100,
     height = 100,
     radius = Math.min(width, height) / 2;
 
 var color = d3.scale.ordinal()
-    .range(["#E74C3C", "#3498DB"]);
+    .range(["#3498DB", "#E74C3C"]);
 
 var pie = d3.layout.pie()
     .sort(null);
@@ -51,31 +52,24 @@ function updatePie(graph, data) {
                 .attrTween("d", arcTween);
 }
 
-$('.indicator').click(function () {
-    $(this).toggleClass('inactive');
+$(document).ready(function () {
+    $('.indicator').click(function () {
+        $(this).toggleClass('inactive');
+    });
+
+    $('.indicator').each(function () {
+        var data = $(this).data();
+        var key = data.indicatorKey;
+        var hasIndicator = data.hasIndicator;
+        var hasntIndicator = data.hasntIndicator;
+        var cssClass = "." + key + " .pie";
+
+        generatePie(cssClass, [hasIndicator, hasntIndicator]);
+        $(cssClass + " svg").attr("style", "background-image: url('assets/"+key+".png');");
+    });
+
+    $('#search-link').click(function (evt) {
+      $('.search').focus();
+      return false;
+    });
 });
-
-generatePie(".estrutura-basica .pie", [1234, 545]);
-generatePie(".biblioteca .pie", [134, 545]);
-generatePie(".sala-de-informatica .pie", [1234, 545]);
-generatePie(".quadra-de-esportes .pie", [134, 545]);
-
-generatePie(".merenda .pie", [134, 545]);
-generatePie(".merenda-de-qualidade .pie", [134, 545]);
-generatePie(".projeto-pedagogico .pie", [134, 545]);
-generatePie(".livro-didatico .pie", [134, 545]);
-
-generatePie(".conselho-escolar-democratico .pie", [134, 545]);
-generatePie(".conselho-de-classe .pie", [134, 545]);
-generatePie(".projeto-pedagogico-democratico .pie", [134, 545]);
-generatePie(".apoio-da-comunidade .pie", [134, 545]);
-
-generatePie(".formacao-inicial .pie", [134, 545]);
-generatePie(".equipe-pedagogica-completa .pie", [134, 545]);
-generatePie(".turmas-com-ate-25-alunos .pie", [134, 545]);
-generatePie(".salario-acima-do-piso .pie", [134, 545]);
-
-generatePie(".desempenho-satisfatorio-em-portugues .pie", [134, 545]);
-generatePie(".desempenho-satisfatorio-em-matematica .pie", [134, 545]);
-generatePie(".indice-de-aprovacao .pie", [134, 545]);
-generatePie(".escola-justa .pie", [134, 545]);

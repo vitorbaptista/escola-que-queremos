@@ -35,4 +35,15 @@ class SchoolController < ApplicationController
     @school = School.find(params[:id].to_s)
     render json: @school.to_json(include: :indicators)
   end
+
+  def search
+    schools = if params[:term]
+                School.where("nome like ?", "%#{params[:term].downcase}%")
+              else
+                School.all.limit(10)
+              end
+    schools_list = schools.map {|u| Hash[ id: u.cod_escola, label: u.nome, name: u.nome]}
+
+    render json: schools_list
+  end
 end

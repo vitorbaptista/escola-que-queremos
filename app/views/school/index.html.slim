@@ -1,7 +1,13 @@
-= render 'shared/header', title: "Colégio PioXI"
-.container-fluid.content
+.navbar.navbar-fixed-top
+  .container-fluid
+
+.container-fluid
   .row
-    = render 'shared/sidebar'
-    .span9.span-sidebar-fixed
-      - @categories.each do |category|
-        = render 'category', category
+    .span3.sidebar-fixed
+      = render 'shared/sidebar'
+    .content.span-sidebar-fixed
+      .navbar-content.navbar-fixed-top
+        input.search placeholder="Nome da escola" value="PioXI"
+      .categories
+        - @categories.each do |category|
+          = render 'category', category
