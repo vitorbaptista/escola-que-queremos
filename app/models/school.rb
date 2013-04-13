@@ -1,4 +1,6 @@
 class School < ActiveRecord::Base
   set_table_name 'escolas'
-  # attr_accessible :title, :body
+  self.primary_key = 'cod_escola'
+
+  has_one :indicators, foreign_key: 'cod_escola'
 end
