@@ -8,9 +8,25 @@ class SchoolController < ApplicationController
                     {name: 'Sala de Informática', description: ''},
                     {name: 'Quadra de Esportes', description: ''}]},
       {title: 'Insumos e condições de funcionamento da escola',
-       indicators: [{name: 'Merenda', description: 'Água, luz, bla...'},
-                    {name: 'Projeto pedagógico', description: ''},
-                    {name: 'Livro didático', description: ''}]}
+       indicators: [{name: 'Merenda', description: ''},
+                    {name: 'Merenda de Qualidade', description: ''},
+                    {name: 'Projeto Pedagógico', description: ''},
+                    {name: 'Livro didático', description: ''}]},
+      {title: 'Gestão Escolar Democrática',
+       indicators: [{name: 'Conselho Escolar Democrático', description: ''},
+                    {name: 'Conselho de Classe', description: ''},
+                    {name: 'Projeto Pedagógico Democrático', description: ''},
+                    {name: 'Apoio da Comunidade', description: ''}]},
+      {title: 'Formação e Condições de Trabalho dos Profissionais da Escola',
+       indicators: [{name: 'Formação Inicial', description: ''},
+                    {name: 'Equipe Pedagógica Completa', description: ''},
+                    {name: 'Turmas Com Até 25 alunos', description: ''},
+                    {name: 'Salário Acima do Piso', description: ''}]},
+      {title: 'Rendimento e Desempenho',
+       indicators: [{name: 'Desempenho Satisfatório em Português', description: ''},
+                    {name: 'Desempenho Satisfatório em Matemática', description: ''},
+                    {name: 'Índice de Aprovação', description: ''},
+                    {name: 'Escola Justa?', description: ''}]}
     ]
   end
 

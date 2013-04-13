@@ -5,12 +5,12 @@
     .row.indicators
       - indicators.each do |indicator|
         .span3 *{class: [indicator[:name].parameterize]}
-          .indicator.inactive
+          .indicator
             .row-fluid
               .status
               .pie
             .row-fluid
-              .status.icon-3x
+              .status.icon-2x
                 .icon-ok
               .info
                 .title

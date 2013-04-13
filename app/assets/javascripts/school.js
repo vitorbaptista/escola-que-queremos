@@ -55,7 +55,27 @@ $('.indicator').click(function () {
     $(this).toggleClass('inactive');
 });
 
-window.blah = generatePie(".estrutura-basica .pie", [1234, 545]);
-window.blah = generatePie(".biblioteca .pie", [134, 545]);
-window.blah = generatePie(".sala-de-informatica .pie", [1234, 545]);
-window.blah = generatePie(".quadra-de-esportes .pie", [134, 545]);
+generatePie(".estrutura-basica .pie", [1234, 545]);
+generatePie(".biblioteca .pie", [134, 545]);
+generatePie(".sala-de-informatica .pie", [1234, 545]);
+generatePie(".quadra-de-esportes .pie", [134, 545]);
+
+generatePie(".merenda .pie", [134, 545]);
+generatePie(".merenda-de-qualidade .pie", [134, 545]);
+generatePie(".projeto-pedagogico .pie", [134, 545]);
+generatePie(".livro-didatico .pie", [134, 545]);
+
+generatePie(".conselho-escolar-democratico .pie", [134, 545]);
+generatePie(".conselho-de-classe .pie", [134, 545]);
+generatePie(".projeto-pedagogico-democratico .pie", [134, 545]);
+generatePie(".apoio-da-comunidade .pie", [134, 545]);
+
+generatePie(".formacao-inicial .pie", [134, 545]);
+generatePie(".equipe-pedagogica-completa .pie", [134, 545]);
+generatePie(".turmas-com-ate-25-alunos .pie", [134, 545]);
+generatePie(".salario-acima-do-piso .pie", [134, 545]);
+
+generatePie(".desempenho-satisfatorio-em-portugues .pie", [134, 545]);
+generatePie(".desempenho-satisfatorio-em-matematica .pie", [134, 545]);
+generatePie(".indice-de-aprovacao .pie", [134, 545]);
+generatePie(".escola-justa .pie", [134, 545]);
