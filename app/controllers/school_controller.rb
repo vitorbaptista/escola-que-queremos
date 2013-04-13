@@ -33,7 +33,7 @@ class SchoolController < ApplicationController
 
   def info
     @school = School.find(params[:id].to_s)
-    render json: @school.to_json(include: :indicators)
+    render json: @school.to_json(include: :indicators, methods: :location)
   end
 
   def search
