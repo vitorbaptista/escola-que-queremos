@@ -1,14 +1,15 @@
 # encoding: utf-8
 class SchoolController < ApplicationController
   def index
+    @total_schools = 263833
     @categories = [
       {title: 'Estrutura Física',
-       indicators: [{name: 'Estrutura Básica', description: 'Água, luz, bla...'},
-                    {name: 'Biblioteca', description: ''},
-                    {name: 'Sala de Informática', description: ''},
-                    {name: 'Quadra de Esportes', description: ''}]},
+       indicators: [{name: 'Estrutura Básica', description: 'Água, luz, bla...', count: 13182},
+                    {name: 'Biblioteca', description: '', count: 263833},
+                    {name: 'Sala de Informática', description: '', count: 66918},
+                    {name: 'Quadra de Esportes', description: '', count: 52045}]},
       {title: 'Insumos e condições de funcionamento da escola',
-       indicators: [{name: 'Merenda', description: ''},
+       indicators: [{name: 'Merenda', description: '', count: 263833},
                     {name: 'Merenda de Qualidade', description: ''},
                     {name: 'Projeto Pedagógico', description: ''},
                     {name: 'Livro didático', description: ''}]},
