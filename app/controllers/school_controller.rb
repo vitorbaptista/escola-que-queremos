@@ -13,4 +13,9 @@ class SchoolController < ApplicationController
                     {name: 'Livro didático', description: ''}]}
     ]
   end
+
+  def info
+    @school = School.find(params[:id].to_s)
+    render json: @school.to_json(include: :indicators)
+  end
 end
