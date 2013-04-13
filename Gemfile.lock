@@ -34,6 +34,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    flat-ui-rails (0.0.2)
     hike (1.2.2)
     i18n (0.6.1)
     journey (1.0.4)
@@ -116,6 +117,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  flat-ui-rails
   jquery-rails
   less-rails
   rails (~> 3.2.13)
