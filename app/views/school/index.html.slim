@@ -1,9 +1,7 @@
-= render 'shared/header'
-.row
-  .span12
-    h1 Colégio PioXI
-.row
-  .span3
-    i.icon-search
-- @categories.each do |category|
-  = render 'category', category
+= render 'shared/header', title: "Colégio PioXI"
+.container-fluid.content
+  .row
+    = render 'shared/sidebar'
+    .span9.span-sidebar-fixed
+      - @categories.each do |category|
+        = render 'category', category
