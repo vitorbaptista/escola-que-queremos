@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require_tree .
+ *= require flat-ui
+ *= require font-awesome
  */
-//= require flat-ui

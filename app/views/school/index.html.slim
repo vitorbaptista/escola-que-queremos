@@ -1,2 +1,9 @@
-h1 School#index
-p Find me in app/views/school/index.html.slim
+= render 'shared/header'
+.row
+  .span12
+    h1 Colégio PioXI
+.row
+  .span3
+    i.icon-search
+- @categories.each do |category|
+  = render 'category', category

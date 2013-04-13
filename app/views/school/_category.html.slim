@@ -1,0 +1,19 @@
+.row *{class: [title.downcase]}
+  .span12
+    h2
+      = title
+    .row.indicators
+      - indicators.each do |indicator|
+        .span3 *{class: [indicator[:name].parameterize]}
+          .indicator.inactive
+            .row-fluid
+              .status
+              .pie
+            .row-fluid
+              .status.icon-3x
+                .icon-ok
+              .info
+                .title
+                  = indicator[:name]
+                .description
+                  = indicator[:description]
