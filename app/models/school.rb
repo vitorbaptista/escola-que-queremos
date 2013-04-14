@@ -23,7 +23,11 @@ class School < ActiveRecord::Base
     indicators_sum = indicators.join(' + ') + ' '
     your_indicator = Indicators.where(cod_escola: cod_escola).sum(indicators_sum).to_i
     avg_your_indicator = Indicators.sum(indicators_sum) / Indicators.count.to_f
-    {your_indicator: normalize(your_indicator, indicators.length), avg_your_indicator: normalize(avg_your_indicator, indicators.length) }
+    {
+      your_indicator: normalize(your_indicator, indicators.length),
+      avg_your_indicator: normalize(avg_your_indicator, indicators.length),
+      ideb_2011: ideb_2011,
+    }
   end
 
   def normalize(val, max)
