@@ -1,12 +1,8 @@
-.navbar.navbar-fixed-top
-  .container-fluid
-
 .container-fluid
   .row
     = render 'shared/sidebar'
     .content.span-sidebar-fixed
-      .navbar-content.navbar-fixed-top
-        input.search placeholder="Buscar escola"
+      = render 'shared/header'
       .categories
         - @categories.each do |category|
           = render 'category', category
