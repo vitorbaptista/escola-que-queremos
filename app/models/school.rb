@@ -1,6 +1,7 @@
 class School < ActiveRecord::Base
   self.table_name = 'escolas'
   self.primary_key = 'cod_escola'
+  MAX = 10
 
   has_one :indicators, foreign_key: 'cod_escola'
 
@@ -22,6 +23,10 @@ class School < ActiveRecord::Base
     indicators_sum = indicators.join(' + ') + ' '
     your_indicator = Indicators.where(cod_escola: cod_escola).sum(indicators_sum).to_i
     avg_your_indicator = Indicators.sum(indicators_sum) / Indicators.count.to_f
-    {your_indicator: your_indicator, avg_your_indicator: format('%2.1f', avg_your_indicator * 100)}
+    {your_indicator: normalize(your_indicator, indicators.length), avg_your_indicator: normalize(avg_your_indicator, indicators.length) }
+  end
+
+  def normalize(val, max)
+   format('%.1f', (MAX * val) / max.to_f)
   end
 end
