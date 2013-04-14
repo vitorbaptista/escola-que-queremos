@@ -87,7 +87,7 @@ $(document).ready(function () {
     });
 
     $('a[data-modal]').click(function() {
-      $($(this).attr('data-modal')).dialog({modal: true, width: 700, height: 500});
+      $($(this).attr('data-modal')).dialog({modal: true, draggable: false, width: 700, height: 500});
       return false;
     });
 });
