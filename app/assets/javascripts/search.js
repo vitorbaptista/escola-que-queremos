@@ -27,6 +27,10 @@ $(document).ready(function () {
                 var mappedIndicator = dbToCssClass[indicator];
                 $("."+mappedIndicator+" .status").addClass(cssClass);
             });
+            var idebElement = $('.ideb');
+            idebElement.children('.school')
+                       .text(school.ideb_2011 || 'N/A')
+                       .attr('style', 'width: '+parseFloat(school.ideb_2011) * 10 + '%');
          });
     }
 
@@ -51,11 +55,7 @@ $(document).ready(function () {
         $.get('/school/your_indicator/'+id, {
             indicadores: indicators.map(function (indicator) { return cssClassToDb[indicator]; }).join(',')
         }, function (indicator) {
-            var idebElement = $('.ideb');
             var indicatorElement = $('.your-indicator');
-            idebElement.children('.school')
-                       .text(indicator.ideb_2011)
-                       .attr('style', 'width: '+parseFloat(indicator.ideb_2011) * 10 + '%');
             indicatorElement.children('.school')
                             .text(indicator.your_indicator)
                             .attr('style', 'width: '+parseFloat(indicator.your_indicator) * 10 + '%');
