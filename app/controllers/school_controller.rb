@@ -4,15 +4,15 @@ class SchoolController < ApplicationController
     @total_schools = 263833
     @categories = [
       {title: 'Estrutura Física',
-       indicators: [{name: 'Estrutura Básica', description: 'Água, luz, bla...', count: 160296},
+       indicators: [{name: 'Estrutura Básica', description: 'Água, luz, banheiro e saneamento básico', count: 160296},
                     {name: 'Biblioteca', description: '', count: 263833},
-                    {name: 'Sala de Informática', description: '', count: 66918},
+                    {name: 'Sala de Informática', description: 'Com acesso à internet para os alunos', count: 66918},
                     {name: 'Quadra de Esportes', description: '', count: 52045}]},
       {title: 'Insumos e condições de funcionamento da escola',
        indicators: [{name: 'Merenda', description: '', count: 263833},
                     {name: 'Merenda de Qualidade', description: '', count: 2457},
                     {name: 'Projeto Pedagógico', description: '', count: 54129},
-                    {name: 'Livro didático', description: '', count: 18758}]},
+                    {name: 'Livro didático', description: 'Para todos alunos', count: 18758}]},
       {title: 'Gestão Escolar Democrática',
        indicators: [{name: 'Conselho Escolar Democrático', description: '', count: 35771},
                     {name: 'Conselho de Classe', description: '', count: 48556},
