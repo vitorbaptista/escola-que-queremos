@@ -23,12 +23,18 @@ class School < ActiveRecord::Base
     indicators_sum = indicators.join(' + ') + ' '
     your_indicator = Indicators.where(cod_escola: cod_escola).sum(indicators_sum).to_i
     avg_your_indicator = Indicators.sum(indicators_sum) / Indicators.count.to_f
+
     escolas_municipio = School.select(:cod_escola).where(cod_municipio: cod_municipio)
     avg_your_indicator_city = Indicators.where(cod_escola: escolas_municipio).sum(indicators_sum) / Indicators.where(cod_escola: escolas_municipio).count.to_f
+
+    escolas_estado = School.select(:cod_escola).where(uf: uf)
+    avg_your_indicator_state = Indicators.where(cod_escola: escolas_estado).sum(indicators_sum) / Indicators.where(cod_escola: escolas_estado).count.to_f
+
     {
       your_indicator: normalize(your_indicator, indicators.length),
       avg_your_indicator: normalize(avg_your_indicator, indicators.length),
       avg_your_indicator_city: normalize(avg_your_indicator_city, indicators.length),
+      avg_your_indicator_state: normalize(avg_your_indicator_state, indicators.length),
       ideb_2011: ideb_2011,
     }
   end
