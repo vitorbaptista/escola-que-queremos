@@ -46,4 +46,14 @@ class SchoolController < ApplicationController
 
     render json: schools_list
   end
+
+  def your_indicator
+    indicators = Indicators.valid_ones & (params[:indicadores] || '').split(',')
+    (render status: 400, text: 'Bad Request' if indicators.empty?) and return
+
+    school = School.find(params[:id].to_s)
+
+    render json: school.calculate_custom_indicator(indicators)
+  end
 end
+
