@@ -17,10 +17,10 @@ $(document).ready(function () {
             equip_pedagogica_completa: 'equipe-pedagogica-completa'
         };
 
-        _clearStatus();
         $.get('/school/info/'+id, function (school) {
-            $('.search').val(school.nome);
-            $('.search').removeClass('ui-autocomplete-loading');
+            _clearStatus();
+            $('.search').removeClass('ui-autocomplete-loading')
+                        .val(school.nome);
             $.each(school.indicators, function (indicator, value) {
                 if (indicator === "cod_escola") { return; }
                 var cssClass = (value ? "icon-ok" : "icon-remove");
