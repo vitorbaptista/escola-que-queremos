@@ -36,13 +36,16 @@ $(document).ready(function () {
             $('.drilldowns .state').data('drilldown', school.uf)
                                    .text(school.uf);
             var municipio = school.nome_municipio;
-            if (municipio.length >= 20) {
-              municipio = municipio.substr(0,17) + "...";
+            if (municipio.length >= 15) {
+              municipio = municipio.substr(0,12) + "...";
             }
 
             $('.drilldowns .city').data('drilldown', school.cod_municipio)
                                   .text(municipio);
          });
+
+        var drilldown = $('.drilldowns a.active').data('drilldown');
+        updatePies(drilldown);
     }
 
     function loadIndicators(id, indicators) {
