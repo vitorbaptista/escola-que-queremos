@@ -39,12 +39,28 @@ $(document).ready(function () {
         minLength: 3,
         select: function (evt, ui) {
             $('.search').addClass('ui-autocomplete-loading');
-            redirectTo(ui.item.id);
+            redirectTo(undefined, ui.item.id);
         }
     });
 
-    function redirectTo(escola_id) {
-        window.location.hash = "#escola=" + escola_id;
+    function redirectTo(indicator, school) {
+        var route = parseUri();
+        var newParts = [];
+
+        if (indicator) {
+            route.indicador = indicator;
+        }
+        if (school) {
+            route.escola = school;
+        }
+
+        $.each(['indicator', 'escola'], function (i, key) {
+            if (route[key]) {
+                newParts.push(key + '=' + route[key]);
+            }
+        });
+        console.log(newParts);
+        window.location.hash = newParts.join('/');
     }
 
     function parseUri() {
