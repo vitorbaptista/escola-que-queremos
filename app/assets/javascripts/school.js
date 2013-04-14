@@ -23,7 +23,7 @@ function generatePie(element, dataset) {
       .attr("height", height)
     .append("g")
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-  
+
   var path = svg.selectAll("path")
       .data(pie(dataset))
     .enter().append("path")
@@ -66,6 +66,11 @@ $(document).ready(function () {
 
     $('#search-link').click(function (evt) {
       $('.search').focus();
+      return false;
+    });
+
+    $('a[data-modal]').click(function() {
+      $($(this).attr('data-modal')).dialog({modal: true, width: 700, height: 500});
       return false;
     });
 });
