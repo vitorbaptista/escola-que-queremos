@@ -33,6 +33,8 @@ $(document).ready(function () {
             _changeBar(idebElement.children('.city'), ideb.avg_ideb_2011_city);
             _changeBar(idebElement.children('.state'), ideb.avg_ideb_2011_state);
             _changeBar(idebElement.children('.brazil'), ideb.avg_ideb_2011);
+            $('.drilldowns .state').data('drilldown', school.uf);
+            $('.drilldowns .city').data('drilldown', school.cod_municipio);
          });
     }
 

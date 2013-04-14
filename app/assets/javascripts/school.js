@@ -52,16 +52,33 @@ function updatePie(graph, data) {
                 .attrTween("d", arcTween);
 }
 
-$(document).ready(function () {
-    $('.indicator').each(function () {
-        var data = $(this).data();
-        var key = data.indicatorKey;
-        var hasIndicator = data.hasIndicator;
-        var hasntIndicator = data.hasntIndicator;
-        var cssClass = "." + key + " .pie";
+function updatePies(drilldown) {
+    $.get('/school/indicators/'+drilldown, function (data) {
+        var total = data.total;
+        for (var key in data) {
+            if (key === "total") { continue; }
+            var cssClass = "." + key + " .pie";
+            var hasIndicator = data[key];
+            var hasntIndicator = total - data[key];
+            var pieData = [hasIndicator, hasntIndicator];
 
-        generatePie(cssClass, [hasIndicator, hasntIndicator]);
-        $(cssClass + " svg").attr("style", "background-image: url('assets/"+key+".png');");
+            if (window.pies[key]) {
+                updatePie(window.pies[key], pieData);
+            } else {
+                window.pies[key] = generatePie(cssClass, [hasIndicator, hasntIndicator]);
+                $(cssClass + " svg").attr("style", "background-image: url('assets/"+key+".png');");
+            }
+
+        }
+    });
+}
+
+$(document).ready(function () {
+    window.pies = {};
+    updatePies('Brasil');
+
+    $('.drilldowns a').click(function (evt) {
+      updatePies($(this).data('drilldown'));
     });
 
     $('#search-link').click(function (evt) {

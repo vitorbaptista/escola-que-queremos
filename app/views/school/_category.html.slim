@@ -4,7 +4,7 @@
       = title
     .row.indicators
       - indicators.each do |indicator|
-        .span3.indicator *{class: [indicator[:name].parameterize]} data-indicator-key="#{indicator[:name].parameterize}" data-has-indicator="#{indicator[:count]}" data-hasnt-indicator="#{@total_schools - indicator[:count].to_i}"
+        .span3.indicator *{class: [indicator[:name].parameterize]} data-indicator-key="#{indicator[:name].parameterize}"
           .row-fluid
             .pie
           .row-fluid
