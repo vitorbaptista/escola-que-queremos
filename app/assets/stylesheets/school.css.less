@@ -39,16 +39,18 @@
 
 .sidebar {
   background: @sidebar !important;
-  width: 200px;
-}
-
-.sidebar-fixed {
-  background: @sidebar !important;
   height: 100%;
   position: fixed;
   left: 0px;
   margin-left: 0px !important;
   width: 200px;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.sidebar .row {
+  margin-left: 0px !important;
 }
 
 .content {
@@ -185,4 +187,16 @@
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
     color: @placeholder !important;
+}
+
+.bar {
+  width: 0;
+  font-size: 18px;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: @search;
+  border: 1px solid @sidebar;
+  transition: width 1s;
+  -webkit-transition: width 1s; /* Safari */
 }

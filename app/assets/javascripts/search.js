@@ -51,8 +51,17 @@ $(document).ready(function () {
         $.get('/school/your_indicator/'+id, {
             indicadores: indicators.map(function (indicator) { return cssClassToDb[indicator]; }).join(',')
         }, function (indicator) {
-            console.log(indicator);
-            // Do some magic
+            var idebElement = $('.ideb');
+            var indicatorElement = $('.your-indicator');
+            idebElement.children('.school')
+                       .text(indicator.ideb_2011)
+                       .attr('style', 'width: '+parseFloat(indicator.ideb_2011) * 10 + '%');
+            indicatorElement.children('.school')
+                            .text(indicator.your_indicator)
+                            .attr('style', 'width: '+parseFloat(indicator.your_indicator) * 10 + '%');
+            indicatorElement.children('.brazil')
+                            .text(indicator.avg_your_indicator)
+                            .attr('style', 'width: '+parseFloat(indicator.avg_your_indicator) * 10 + '%');
         });
     }
 
@@ -123,6 +132,11 @@ $(document).ready(function () {
                 $('.'+indicador).addClass('active');
             });
             loadIndicators(route.escola, route.indicadores);
+        } else {
+            $('.your-indicator').children('.bar').each(function (i, element) {
+                $(element).attr('style', 'width: 0;')
+                          .text('0.0');
+            });
         }
     }
     window.onhashchange = updateRoute;
