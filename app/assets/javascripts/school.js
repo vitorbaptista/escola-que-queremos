@@ -53,10 +53,6 @@ function updatePie(graph, data) {
 }
 
 $(document).ready(function () {
-    $('.indicator').click(function () {
-        $(this).toggleClass('inactive');
-    });
-
     $('.indicator').each(function () {
         var data = $(this).data();
         var key = data.indicatorKey;
