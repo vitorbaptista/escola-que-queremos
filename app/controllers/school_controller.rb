@@ -20,14 +20,7 @@ class SchoolController < ApplicationController
                     {name: 'Apoio da Comunidade', description: ''}]},
       {title: 'Formação e condições de trabalho dos profissionais da escola',
        indicators: [{name: 'Formação Inicial', description: ''},
-                    {name: 'Equipe Pedagógica Completa', description: ''},
-                    {name: 'Turmas Com Até 25 alunos', description: ''},
-                    {name: 'Salário Acima do Piso', description: ''}]},
-      {title: 'Rendimento e desempenho',
-       indicators: [{name: 'Desempenho Satisfatório em Português', description: ''},
-                    {name: 'Desempenho Satisfatório em Matemática', description: ''},
-                    {name: 'Índice de Aprovação', description: ''},
-                    {name: 'Escola Justa?', description: ''}]}
+                    {name: 'Equipe Pedagógica Completa', description: ''}]}
     ]
   end
 
