@@ -1,0 +1,27 @@
+    "Escola Que Queremos" (School We Want) is a tool made to aid public 
+    governance, by allowing users to access data from open educational databases
+    in an intuitive browsing format of data visualization, that encourages them to 
+    spend time learning about interesting information about the current status of the
+    Brazillian educational system, acording to the measurement and comparison of items,
+    including references such as the IDEB, one of the oficial indexes used by the 
+    Government in order to assist in the making of strategical decisions.
+
+    Copyleft 2013
+    @uthors:
+    Adriano Bonat (adrianob@gmail.com)
+    Fernanda Campagnucci (campagnucci@gmail.com)
+    Pedro Guimarães (tigreped@gmail.com)
+    vitor Baptista  (vitor@vitorbaptista.com)
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
