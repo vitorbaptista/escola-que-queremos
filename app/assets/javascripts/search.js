@@ -10,7 +10,7 @@ $(document).ready(function () {
             projeto_pedagogico: 'projeto-pedagogico',
             livro_didatico: 'livro-didatico',
             conselho_escolar_partic: 'conselho-escolar-democratico',
-            conselho_classe: 'conselho-classe',
+            conselho_classe: 'conselho-de-classe',
             projeto_pedagogico_partic: 'projeto-pedagogico-democratico',
             apoio_comunidade: 'apoio-da-comunidade',
             formacao_inicial_prof: 'formacao-inicial',
@@ -27,10 +27,12 @@ $(document).ready(function () {
                 var mappedIndicator = dbToCssClass[indicator];
                 $("."+mappedIndicator+" .status").addClass(cssClass);
             });
+            var ideb = school.calculate_ideb_2011;
             var idebElement = $('.ideb');
-            idebElement.children('.school')
-                       .text(school.ideb_2011 || 'N/A')
-                       .attr('style', 'width: '+parseFloat(school.ideb_2011) * 10 + '%');
+            _changeBar(idebElement.children('.school'), ideb.ideb_2011);
+            _changeBar(idebElement.children('.city'), ideb.avg_ideb_2011_city);
+            _changeBar(idebElement.children('.state'), ideb.avg_ideb_2011_state);
+            _changeBar(idebElement.children('.brazil'), ideb.avg_ideb_2011);
          });
     }
 
@@ -45,7 +47,7 @@ $(document).ready(function () {
             'projeto-pedagogico': 'projeto_pedagogico',
             'livro-didatico': 'livro_didatico',
             'conselho-escolar-democratico': 'conselho_escolar_partic',
-            'conselho-classe': 'conselho_classe',
+            'conselho-de-classe': 'conselho_classe',
             'projeto-pedagogico-democratico': 'projeto_pedagogico_partic',
             'apoio-da-comunidade': 'apoio_comunidade',
             'formacao-inicial': 'formacao_inicial_prof',
@@ -56,17 +58,20 @@ $(document).ready(function () {
             indicadores: indicators.map(function (indicator) { return cssClassToDb[indicator]; }).join(',')
         }, function (indicator) {
             var indicatorElement = $('.your-indicator');
-            indicatorElement.children('.school')
-                            .text(indicator.your_indicator)
-                            .attr('style', 'width: '+parseFloat(indicator.your_indicator) * 10 + '%');
-            indicatorElement.children('.brazil')
-                            .text(indicator.avg_your_indicator)
-                            .attr('style', 'width: '+parseFloat(indicator.avg_your_indicator) * 10 + '%');
+            _changeBar(indicatorElement.children('.school'), indicator.your_indicator);
+            _changeBar(indicatorElement.children('.city'), indicator.avg_your_indicator_city);
+            _changeBar(indicatorElement.children('.state'), indicator.avg_your_indicator_state);
+            _changeBar(indicatorElement.children('.brazil'), indicator.avg_your_indicator);
         });
     }
 
     function _clearStatus() {
         $('.status').removeClass('icon-ok').removeClass('icon-remove');
+    }
+
+    function _changeBar(element, value) {
+        element.text(value || 'N/A')
+               .attr('style', 'width: '+parseFloat(value) * 10 + '%');
     }
 
     $('.search').autocomplete({

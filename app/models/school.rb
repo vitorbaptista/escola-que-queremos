@@ -35,11 +35,32 @@ class School < ActiveRecord::Base
       avg_your_indicator: normalize(avg_your_indicator, indicators.length),
       avg_your_indicator_city: normalize(avg_your_indicator_city, indicators.length),
       avg_your_indicator_state: normalize(avg_your_indicator_state, indicators.length),
-      ideb_2011: ideb_2011,
+    }
+  end
+
+  def calculate_ideb_2011
+    total = School.count
+    avg_ideb_2011 = School.sum('ideb_2011') / total
+
+    total = School.where(cod_municipio: self.cod_municipio).count
+    avg_ideb_2011_city = School.where(cod_municipio: self.cod_municipio).sum('ideb_2011') / total
+
+    total = School.where(uf: self.uf).count
+    avg_ideb_2011_state = School.where(uf: self.uf).sum('ideb_2011') / total
+
+    {
+      ideb_2011: formatted(self.ideb_2011),
+      avg_ideb_2011: formatted(avg_ideb_2011),
+      avg_ideb_2011_city: formatted(avg_ideb_2011_city),
+      avg_ideb_2011_state: formatted(avg_ideb_2011_state)
     }
   end
 
   def normalize(val, max)
-   format('%.1f', (MAX * val) / max.to_f)
+   formatted((MAX * val) / max.to_f)
+  end
+
+  def formatted(val)
+    format('%.1f', val)
   end
 end

@@ -10,7 +10,7 @@ class SchoolController < ApplicationController
                     {name: 'Quadra de Esportes', description: '', count: 51924}]},
       {title: 'Insumos e condições de funcionamento da escola',
        indicators: [{name: 'Merenda', description: '', count: 168803},
-                    {name: 'Merenda de Qualidade', description: '', count: 2457},
+                    {name: 'Merenda de Qualidade', description: 'Quantidade, variedade, pessoal, e espaço para cozinhar', count: 2457},
                     {name: 'Projeto Pedagógico', description: '', count: 54129},
                     {name: 'Livro didático', description: 'Para todos alunos', count: 18758}]},
       {title: 'Gestão escolar democrática',
@@ -33,7 +33,7 @@ class SchoolController < ApplicationController
 
   def info
     @school = School.find(params[:id].to_s)
-    render json: @school.to_json(include: :indicators, methods: :location)
+    render json: @school.to_json(include: :indicators, methods: [:location, :calculate_ideb_2011])
   end
 
   def search
