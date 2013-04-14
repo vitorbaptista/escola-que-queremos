@@ -49,7 +49,7 @@ class School < ActiveRecord::Base
     avg_ideb_2011_state = School.where(uf: self.uf).sum('ideb_2011') / total
 
     {
-      ideb_2011: formatted(self.ideb_2011 || 0),
+      ideb_2011: formatted(self.ideb_2011),
       avg_ideb_2011: formatted(avg_ideb_2011),
       avg_ideb_2011_city: formatted(avg_ideb_2011_city),
       avg_ideb_2011_state: formatted(avg_ideb_2011_state)
@@ -61,6 +61,7 @@ class School < ActiveRecord::Base
   end
 
   def formatted(val)
+    return unless val
     format('%.1f', val)
   end
 end
