@@ -19,7 +19,7 @@ class SchoolController < ApplicationController
                     {name: 'Projeto Pedagógico Democrático', description: '', count: 22862},
                     {name: 'Apoio da Comunidade', description: '', count: 52113}]},
       {title: 'Formação e Condições de Trabalho dos Profissionais da Escola',
-       indicators: [{name: 'Formação Inicial', description: '', count: 4668},
+       indicators: [{name: 'Formação Inicial', description: '', count: 55244},
                     {name: 'Equipe Pedagógica Completa', description: '', count: 46616},
                     {name: 'Turmas Com Até 25 alunos', description: ''},
                     {name: 'Salário Acima do Piso', description: ''}]},
