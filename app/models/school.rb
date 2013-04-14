@@ -24,8 +24,8 @@ class School < ActiveRecord::Base
     your_indicator = Indicators.where(cod_escola: cod_escola).sum(indicators_sum).to_i
     avg_your_indicator = Indicators.sum(indicators_sum) / Indicators.count.to_f
 
-    escolas_municipio = School.select(:cod_escola).where(cod_municipio: cod_municipio)
-    avg_your_indicator_city = Indicators.where(cod_escola: escolas_municipio).sum(indicators_sum) / Indicators.where(cod_escola: escolas_municipio).count.to_f
+    total = Indicators.joins(:school).where({:escolas => {:cod_municipio => cod_municipio}}).count.to_f
+    avg_your_indicator_city = Indicators.joins(:school).where({:escolas => {:cod_municipio => cod_municipio}}).sum(indicators_sum) / total
 
     total = Indicators.joins(:school).where({:escolas => {:uf => uf}}).count.to_f
     avg_your_indicator_state = Indicators.joins(:school).where({:escolas => {:uf => uf}}).sum(indicators_sum) / total
