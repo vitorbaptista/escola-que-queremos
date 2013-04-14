@@ -6,7 +6,7 @@
 @search: #27AE60;
 @success: green;
 @fail: red;
-@placeholder: @search + 40%;
+@placeholder: @sidebar + 100;
 @autocomplete-background: #c6f7ed;
 
 .content {
@@ -14,13 +14,19 @@
   margin-left: 20px;
 }
 
+.category {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
 .search {
-  width: 98%;
+  width: 99%;
   background: white url("search.png") 100% center no-repeat !important;
   font-size: 32px;
   color: @sidebar;
   line-height: 100%;
-  margin: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 
@@ -99,6 +105,10 @@
 
 .title {
   font-weight: bold;
+}
+
+.sidebar .title {
+  font-size: 30px;
 }
 
 .status {
@@ -196,7 +206,40 @@
   padding-top: 5px;
   padding-bottom: 5px;
   background-color: @search;
-  border: 1px solid @sidebar;
   transition: width 1s;
   -webkit-transition: width 1s; /* Safari */
+}
+
+.school {
+  background-color: #27AE60;
+}
+
+.city {
+  background-color: #F39C12;
+}
+
+.state {
+  background-color: #D35400;
+}
+
+.brazil {
+  background-color: #C0392B;
+}
+
+td.school {
+  width: 24px;
+  height: 24px;
+}
+
+td {
+  padding-left: 5px;
+}
+
+table {
+  font-size: 18px;
+  border: 1px solid @sidebar;
+}
+
+.social a {
+  margin-left: 20px;
 }
