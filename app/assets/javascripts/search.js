@@ -45,7 +45,9 @@ $(document).ready(function () {
          });
 
         var drilldown = $('.drilldowns a.active').data('drilldown');
-        updatePies(drilldown);
+        if (drilldown) {
+            updatePies(drilldown);
+        }
     }
 
     function loadIndicators(id, indicators) {
