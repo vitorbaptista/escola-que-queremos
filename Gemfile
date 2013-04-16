@@ -19,10 +19,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'twitter-bootstrap-rails'
   gem 'flatui-rails'
-  gem 'slim'
-  gem 'slim-rails'
 end
 
+gem 'slim'
+gem 'slim-rails'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
