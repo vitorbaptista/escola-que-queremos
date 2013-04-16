@@ -17,9 +17,10 @@ group :assets do
   gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
-  gem 'flatui-rails'
 end
+
+gem 'twitter-bootstrap-rails'
+gem 'flatui-rails'
 
 gem 'slim'
 gem 'slim-rails'
