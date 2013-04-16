@@ -119,6 +119,7 @@ $(document).ready(function () {
             }
         });
         window.location.hash = newParts.join('/');
+        if (ga) { ga('send', 'pageview'); }
     }
 
     function parseUri() {
