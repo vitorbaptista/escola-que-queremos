@@ -1,10 +1,5 @@
 # encoding: utf-8
-require 'digest/md5'
-
 class SchoolController < ApplicationController
-
-  caches_page :index
-  caches_action :indicators, :show, :search, :your_indicator, cache_path: Proc.new { |c| Digest::MD5.hexdigest(c.params.to_s) }
 
   def index
     @categories = [
