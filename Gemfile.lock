@@ -33,6 +33,7 @@ GEM
       sass (~> 3.2)
     builder (3.0.4)
     commonjs (0.2.6)
+    dalli (2.6.2)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -127,6 +128,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dalli
   flatui-rails
   jquery-rails
   less-rails
