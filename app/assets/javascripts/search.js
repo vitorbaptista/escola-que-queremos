@@ -119,7 +119,10 @@ $(document).ready(function () {
             }
         });
         window.location.hash = newParts.join('/');
-        if (ga) { ga('send', 'pageview'); }
+        var gaLocation = window.location.pathname +
+                         window.location.search +
+                         window.location.hash;
+        if (ga) { ga('send', 'pageview', gaLocation); }
     }
 
     function parseUri() {
