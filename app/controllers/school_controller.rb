@@ -28,7 +28,7 @@ class SchoolController < ApplicationController
     render json: ESTADOS[params[:id]] || MUNICIPIOS[params[:id]] || BRASIL
   end
 
-  def info
+  def show
     @school = School.find(params[:id].to_s)
     render json: @school.to_json(include: :indicators, methods: [:location, :calculate_ideb_2011])
   end

@@ -17,7 +17,7 @@ $(document).ready(function () {
             equip_pedagogica_completa: 'equipe-pedagogica-completa'
         };
 
-        $.get('/school/info/'+id, function (school) {
+        $.get('/show/'+id, function (school) {
             _clearStatus();
             $('.search').removeClass('ui-autocomplete-loading')
                         .val(school.nome);
@@ -66,7 +66,7 @@ $(document).ready(function () {
             'equipe-pedagogica-completa': 'equip_pedagogica_completa'
         };
 
-        $.get('/school/your_indicator/'+id, {
+        $.get('/your_indicator/'+id, {
             indicadores: indicators.map(function (indicator) { return cssClassToDb[indicator]; }).join(',')
         }, function (indicator) {
             var indicatorElement = $('.your-indicator');
@@ -87,7 +87,7 @@ $(document).ready(function () {
     }
 
     $('.search').autocomplete({
-        source: "/school/search",
+        source: "/search",
         minLength: 3,
         select: function (evt, ui) {
             $('.search').addClass('ui-autocomplete-loading');
