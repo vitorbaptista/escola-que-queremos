@@ -53,7 +53,7 @@ function updatePie(graph, data) {
 }
 
 function updatePies(drilldown) {
-    $.get('/school/indicators/'+drilldown, function (data) {
+    $.get('/indicators/'+drilldown, function (data) {
         var total = data.total;
         for (var key in data) {
             if (key === "total") { continue; }
