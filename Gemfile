@@ -26,6 +26,7 @@ gem 'flatui-rails'
 gem 'slim'
 gem 'slim-rails'
 gem 'jquery-rails'
+gem 'dalli'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
