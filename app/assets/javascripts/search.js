@@ -20,7 +20,7 @@ $(document).ready(function () {
         $.get('/show/'+id, function (school) {
             _clearStatus();
             $('.search').removeClass('ui-autocomplete-loading')
-                        .val(school.nome + " (" + school.nome_municipio + ")");
+                        .val(school.nome);
             $.each(school.indicators, function (indicator, value) {
                 if (indicator === "cod_escola") { return; }
                 var cssClass = (value ? "icon-ok" : "icon-remove");

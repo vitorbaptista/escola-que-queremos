@@ -39,7 +39,7 @@ class SchoolController < ApplicationController
               else
                 School.all.limit(10)
               end
-    schools_list = schools.map {|u| Hash[ id: u.cod_escola, name: u.nome, label: (u.nome + " (#{u.nome_municipio})")]}
+    schools_list = schools.map {|u| Hash[ id: u.cod_escola, name: u.nome, label: (u.nome + " (#{u.uf})")]}
 
     render json: schools_list
   end
