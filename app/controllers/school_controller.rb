@@ -3,7 +3,6 @@ class SchoolController < ApplicationController
   BRASIL = JSON.parse(File.open('public/brasil.json').read)
   ESTADOS = JSON.parse(File.open('public/estados.json').read)
   MUNICIPIOS = JSON.parse(File.open('public/municipios.json').read)
-  require "pry", binding.pry
 
   def index
     @categories = [
