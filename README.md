@@ -22,3 +22,8 @@ Para instalar:
 * `git clone https://github.com/vitorbaptista/escola-que-queremos`
 * `cd escola-que-queremos`
 * `bundle install`
+* `Altere o arquivo config/database.yml com as configurações do seu banco MySQL`
+* `rake db:create`
+* `rake db:migrate`
+* `rails s`
+* `Acesse pelo browser http://localhost:3000`
